@@ -1,0 +1,43 @@
+
+/* for form */
+.table {
+  background-color: lightgray;
+}
+
+
+/* for required field */
+.lblError {
+  color: red;
+ }
+
+ /* for button */
+ button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* for input field */
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+}
+
+/* optional */
+.container{
+  width: 60% none;
+}
+.div{
+   font-family:'Times New Roman', Times, serif;
+}
+.border{
+  border: 1px solid black;
+}

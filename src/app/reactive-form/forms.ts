@@ -1,5 +1,7 @@
    export class basic
    {
+      file: any;
+      reimbursement_account_no: any;
       constructor (
 
         public id: number,

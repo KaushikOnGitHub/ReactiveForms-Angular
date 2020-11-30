@@ -215,6 +215,11 @@
       <td>{{item.personal_email}}</td>
     </tr>
 
+    <tr>
+      <td><button (click)="deletePermanent(item)">Delete</button></td>
+      <td><button (click)="editPermanent(item)">Edit</button></td>
+    </tr>
+
 
 </table>
 <div>&nbsp;</div>
@@ -322,11 +327,8 @@
       <div class="container desc">
         <div class="row centered">
           <div class="col-lg-12">
-            <div *ngFor="let item of basic let i=index">
+<!-- <div *ngFor="let item of basic let i=index"> -->
             <button type="submit" class="btn btn primary" routerLink="/reactive-form">Submit</button>&nbsp;&nbsp;
-            <!-- <button type="button" class="btn btn primary"(click)="deletebasic(item)" routerLink="/CRUD">Delete</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn primary" (click)="onEditForm(item)">Edit</button>
-            </div> -->
           </div>
         </div>
 

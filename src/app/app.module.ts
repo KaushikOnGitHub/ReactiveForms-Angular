@@ -7,9 +7,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { DataComponent } from './CRUD/data.component';
 import { arrRouting } from './app.routing';
 import { HeaderComponent } from './header/header.component';
+import { EditbasicComponent } from './editbasic/editbasic.component';
+import { EditpermanentComponent } from './editpermanent/editpermanent.component';
 
 @NgModule({
-  declarations: [AppComponent, ReactiveFormComponent, DataComponent, HeaderComponent],
+  declarations: [AppComponent, ReactiveFormComponent, DataComponent, HeaderComponent, EditbasicComponent, EditpermanentComponent],
 
   imports: [HttpClientModule, BrowserModule, FormsModule, ReactiveFormsModule, arrRouting],
 

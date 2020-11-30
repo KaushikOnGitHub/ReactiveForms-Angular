@@ -1,0 +1,301 @@
+
+
+<div class="container mt-3">
+  <h3>{{taskID}}</h3>
+  <form (ngSubmit)="updatebasic()" [formGroup]="basic">
+    <div class="col-sm-12">
+
+       <div>
+              <!-- <label>Id</label>
+              <input type="number" formControlName="Id"> -->
+            </div>
+      <div class="row" class="table table-bordered">
+        <div class="col-sm-6 form-group div" >
+          <label>Employee no:<span class="lblError">*</span></label>
+          <div class="controls">
+          <input type="number" placeholder="Enter employee no" class="form-control" formControlName="Employee_no">
+          <p class="lblError" *ngIf="basic.get('Employee_no').hasError('required') && !basic.get('Employee_no').pristine">Required Field.</p>
+        </div>
+        </div>
+
+        <div class="col-sm-6 form-group div">
+          <label>Title<span class="lblError">*</span></label>
+          <div class="input-group">
+            <select class="form-control" formControlName="Title">
+              <option value="Mr">Mr.</option>
+              <option value="Ms">Ms.</option>
+              <option value="Miss">Miss</option>
+            </select>
+            <p *ngIf="basic.get('Title').hasError('required') && !basic.get('Title').pristine" class="lblError">
+              Please select title.</p>
+            </div>
+
+        </div>
+
+
+      <div class="row">
+        <div class="col-sm-3 form-group div" >
+          <label>Addressed as:</label>
+          <input type="text" placeholder="Enter Addressed as" class="form-control" formControlName="Addressed_as">
+        </div>
+
+        <div class="col-sm-3 form-group div">
+          <label>First Name<span class="lblError">*</span></label>
+          <input type="text" placeholder="Enter first name" class="form-control" formControlName="First_Name">
+          <p class="lblError" *ngIf="basic.get('First_Name').hasError('required') && !basic.get('First_Name').pristine">First Name is required</p>
+        </div>
+
+        <div class="col-sm-3 form-group div">
+          <label>Middle Name</label>
+          <input type="text" placeholder="Enter middle name" class="form-control" formControlName="Middle_Name">
+        </div>
+
+        <div class="col-sm-3 form-group div">
+          <label>Last Name</label>
+          <input type="text" placeholder="Enter last name" class="form-control" formControlName="Last_Name">
+        </div>
+      </div>
+
+      <div class="col-sm-3 form-group div">
+        <label>Initials</label>
+        <input type="text" placeholder="Enter Initials" class="form-control" formControlName="Initials">
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="form-group div">
+            <label>Gender</label> <br>
+            <label class="user_gender"><input type="radio" value="male" formControlName="Gender">Male</label>
+            <label class="user_gender"><input type="radio" value="female" formControlName="Gender">Female</label>
+          </div>
+        </div>
+
+        <div classs="col-sm-3">
+          <div class="form-group div">
+            <label>DOB<span class="lblError">*</span></label>
+              <input type="text" class="form-control" formControlName="dob">
+              <p class="lblError" *ngIf="basic.get('dob').hasError('required') && !basic.get('dob').pristine">Required</p>
+          </div>
+        </div>
+        <!--  -->
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col-sm-3 form-group div" >
+          <label>Employee Age</label>
+          <input type="number" readonly formControlName="Employee_Age" value={{age}} placeholder="Age"  class="form-control">
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 form-group div" >
+          <label>Official Phone</label>
+          <input type="text" placeholder="Enter official no" class="form-control" formControlName="Official_Phone">
+        </div>
+
+        <div class="col-sm-6 form-group div" >
+          <label>Personal Mobile<span class="lblError">*</span></label>
+          <input type="number" placeholder="Enter Personal Mobile no" class="form-control" formControlName="PMobile">
+          <p class="lblError" *ngIf="basic.get('Personal_Mobile').hasError('required') && !basic.get('Personal_Mobile').pristine">Required Field.</p>
+          <p class="lblError" *ngIf="basic.get('Personal_Mobile').hasError('pattern') && !basic.get('Personal_Mobile').pristine">Invalid Mobile Number</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3 form-group div" >
+          <label>Fax</label>
+          <input type="text" placeholder="Enter Fax" class="form-control" formControlName="Fax">
+        </div>
+
+        <div class="col-sm-3 form-group div" >
+          <label>Official Email<span class="lblError">*</span></label>
+          <input type="text" placeholder="mail" class="form-control" formControlName="Official_Email">
+          <p class="lblError" *ngIf="basic.get('PMail').hasError('required')
+            && !basic.get('Official_Email').pristine">Email is required</p>
+          <p class="lblError" *ngIf="basic.get('Official_Email').hasError('Official_Email')
+           && !basic.get('Official_Email').pristine">Invalid Email</p>
+        </div>
+
+        <div class="col-sm-3 form-group div" >
+          <label>Personal Mail</label>
+          <input type="text" placeholder="Personal_Email" class="form-control" formControlName="Personal_Email">
+        </div>
+
+        <div class="col-sm-3 form-group div">
+          <label>Personal Mail 2</label>
+          <input type="text" placeholder="Personal_Email_2" class="form-control" formControlName="Personal_Email_2">
+        </div>
+      </div>
+
+      <div class="col-sm-3 form-group div">
+        <label>Personal Mail 3</label>
+        <input type="text" placeholder="Personal_Email_3" class="form-control" formControlName="Personal_Email_3">
+      </div>
+
+
+
+        <div class="row">
+          <div class="col-sm-4 form-group div" >
+            <label class="col-md-4">Photo</label>
+            <input name="filebutton" class="input-file" type="file" formControlName="Photo">
+          </div>
+
+          <div class="col-sm-4 form-group div">
+            <label>Birth Place<span class="lblError">*</span></label>
+            <input type="text" placeholder="Enter birth place" class="form-control" formControlName="birth_place">
+            <p class="lblError" *ngIf="basic.get('birth_place').hasError('required')
+            && !basic.get('birth_place').pristine">Birth place is required</p>
+          </div>
+
+          <div class="row">
+          <div class="col-sm-3 form-group div">
+           <label>Religion</label>&nbsp;
+           <select formControlName="Religion">
+           <option value="">Select...</option>
+           <option value="Hindu">Hindu</option>
+           <option value="Muslim">Muslim</option>
+           <option value="Christian">Christian</option>
+           </select>
+           </div>
+
+          <div class="form-group col-sm-3">
+            <label>Caste:</label> <br>
+            <select formControlName="caste">
+            <option value="">Select</option>
+            <option value="Gujarati">Gujarati</option>
+            <option value="Jewish">Jewish</option>
+            <option value="Christian">Christian</option>
+            </select>
+            </div>
+
+
+          <div class="row">
+            <div class="col-sm-3 form-group div">
+              <label>domicile</label>
+              <input type="text" placeholder="Enter domicile no" class="form-control" formControlName="domicile">
+            </div>
+
+
+          <div class="col-sm-3">
+            <div class="form-group div">
+              <label>Nationality<span class="lblError">*</span></label>&nbsp;
+              <select formControlName="nationality">
+                <option value="">Select...</option>
+                <option value="Indian">Indian</option>
+                <option value="canadian">Canadian</option>
+                <option value="American">American</option>
+              </select>
+              <p *ngIf="basic.get('nationality').hasError('required') && !basic.get('nationality').pristine" class="lblError">
+                Please select nationality.</p>
+            </div>
+          </div>
+        </div>
+
+          <div class="row">
+            <div class="col-sm-3 form-group div">
+              <label>Voter ID</label>
+              <input type="text" placeholder="Enter voterid no" class="form-control" formControlName="voter_id">
+            </div>
+
+            <div class="col-sm-3 form-group div">
+              <label>PAN Number<span class="lblError">*</span></label>
+              <input type="text" placeholder="Enter pan no" class="form-control" formControlName="pan_no">
+            <p class="lblError" *ngIf="basic.get('pan_no').hasError('required') && !basic.get('PanNo').pristine">Pan number is required</p>
+            </div>
+
+            <div class="col-sm-3 form-group div">
+              <label>Adhar Number<span class="lblError">*</span></label>
+              <input type="text" placeholder="Enter adhar no" class="form-control" formControlName="aadhaar_no">
+              <p class="lblError" *ngIf="basic.get('aadhaar_no').hasError('required') && !basic.get('aadhaar_no').pristine">Adhar number is required</p>
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="col-sm-3">
+          <div class="form-group div" >
+            <label>Marital Status</label> <br>
+            <label class="radio-inline"><input type="radio" value="married" formControlName="Status">Married</label>
+            <label class="radio-inline"><input type="radio" value="single" formControlName="Status">Single</label>
+          </div>
+          </div>
+
+
+            <div class="col-sm-3 form-group div">
+              <label>Number of Child</label>
+              <input type="text" placeholder="Enter chilren number" class="form-control" formControlName="no_of_status">
+            </div>
+
+            <div classs="col-sm-3">
+              <div class="form-group div">
+                <label>Marriage Date</label>
+                  <input type="text" class="form-control" formControlName="marriage_date">
+              </div>
+            </div>
+
+         <div class="row">
+          <div class="col-sm-6 form-group div">
+            <label>Account Type<span class="lblError">*</span></label>
+            <input type="text" placeholder="Enter Account Type" class="form-control" formControlName="account_type">
+            <p class="lblError" *ngIf="basic.get('account_type').hasError('required') && !basic.get('account_type').pristine">Account Type is required</p>
+          </div>
+
+          <div class="col-sm-6 form-group div">
+            <label>Payment Type</label>
+            <input type="text" placeholder="Enter Payment Type" class="form-control" formControlName="payment_type">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 form-group div" >
+            <label>Account Number<span class="lblError">*</span></label>
+            <input type="text" placeholder="account_no" class="form-control" formControlName="account_no">
+            <p class="lblError" *ngIf="basic.get('Payment').hasError('account_no') && !basic.get('account_no').pristine">Account Number is required</p>
+          </div>
+
+          <div class="col-sm-6 form-group div">
+            <label>Branch Details<span class="lblError">*</span></label>
+            <input type="text" placeholder="Enter Branch Details" class="form-control" formControlName="branch_details">
+            <p class="lblError" *ngIf="basic.get('branch_details').hasError('required') && !basic.get('branch_details').pristine">Branch Details is required</p>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-6 form-group div">
+            <label>IFSC Code</label>
+            <input type="text" placeholder="Enter IFSC Code" class="form-control" formControlName="ifsc_code">
+          </div>
+
+          <div class="col-sm-6 form-group div" >
+            <label>Bank Name<span class="lblError">*</span></label>
+            <input type="text" placeholder="Enter bank name" class="form-control" formControlName="IFSC">
+            <p class="lblError" *ngIf="basic.get('bank_name').hasError('required') && !basic.get('bank_name').pristine">Bank Name is required</p>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-6 form-group div" >
+            <label>Reimbursement Bank Name</label>
+            <input type="text" placeholder="Enter bank name" class="form-control" formControlName="reimbursement_bank_name">
+          </div>
+
+          <div class="col-sm-6 form-group div">
+            <label>Reimbursement account Number</label>
+            <input type="text" placeholder="Enter bank name" class="form-control" formControlName="reimbursement_account_no">
+          </div>
+        </div>
+        <div class="form-group">
+
+          <button type="submit" class="btn btn-primary" routerLink="/CRUD">Submit</button>
+
+        </div>
+        </div>
+        </div>
+        </div>
+
+    </div>
+    </div>
+  </form>
+
+</div>

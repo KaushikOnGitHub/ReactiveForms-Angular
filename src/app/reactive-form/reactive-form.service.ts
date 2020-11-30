@@ -6,6 +6,15 @@ import { basic, present, permanent, skill, qualification, experience } from './f
   providedIn: 'root'
 })
 export class ReactiveFormService {
+  updatePermanantAdd(value: any) {
+    throw new Error('Method not implemented.');
+  }
+  getAllPermanantAddById(taskId1: any) {
+    throw new Error('Method not implemented.');
+  }
+  getAllbasicById(taskID: any) {
+    throw new Error('Method not implemented.');
+  }
 
   url:string ='http://localhost:3000/basic/';
   url1:string ='http://localhost:3000/present/';

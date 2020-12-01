@@ -80,7 +80,7 @@ this.permanant.get('PermanantAddEdit').get('sameaddress').valueChanges.subscribe
 
     this.taskId1=this._actrouter.snapshot.params['id1'];
     console.log(this.taskId1);
-    this._data.getAllPermanantAddById(this.taskId1).subscribe((data:PermanantAdd[])=>
+    this._data.getAllPermanantAddById(this.taskId1).subscribe((data:permanent[])=>
     {
         console.log(data[0]);
        this.permanant.get('PermanantAddEdit').patchValue({
@@ -101,15 +101,9 @@ this.permanant.get('PermanantAddEdit').get('sameaddress').valueChanges.subscribe
 
   }
 
-  Accessval(x: any, value: any): void {
-    throw new Error('Method not implemented.');
-  }
-  edit(a: any): void {
-    throw new Error('Method not implemented.');
-  }
 
   permanantedit(){
-    this._data.updatePermanantAdd(this.permanant.value).subscribe(
+    this._data.updatepermanent(this.permanant.value).subscribe(
       (x)=>{
         this._router.navigate(['/CRUD']);
       }

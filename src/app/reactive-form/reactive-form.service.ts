@@ -6,15 +6,15 @@ import { basic, present, permanent, skill, qualification, experience } from './f
   providedIn: 'root'
 })
 export class ReactiveFormService {
-  updatePermanantAdd(value: any) {
-    throw new Error('Method not implemented.');
-  }
-  getAllPermanantAddById(taskId1: any) {
-    throw new Error('Method not implemented.');
-  }
-  getAllbasicById(taskID: any) {
-    throw new Error('Method not implemented.');
-  }
+  // updatePermanantAdd(value: any) {
+  //   throw new Error('Method not implemented.');
+  // }
+  // getAllPermanantAddById(taskId1: any) {
+  //   throw new Error('Method not implemented.');
+  // }
+  // getAllPermanantAddById(id1){
+  //   return this._http.get(this.url2+id1);
+  // }
 
   url:string ='http://localhost:3000/basic/';
   url1:string ='http://localhost:3000/present/';
@@ -27,6 +27,9 @@ export class ReactiveFormService {
   getAllbasic(){
     return this._http.get<any>(this.url);
   }
+
+
+
 
   addbasic(item:basic){
     let head=new HttpHeaders().set('Content-Type','application/json');
@@ -44,7 +47,9 @@ export class ReactiveFormService {
     return this._http.put(this.url + item.Employee_no, body, { headers: head });
   }
 
-
+  getAllbasicById(id){
+    return this._http.get(this.url+id);
+   }
 // present table starts below
 
 getAllpresent(){
@@ -73,6 +78,9 @@ editpresent(item: present) {
 getAllpermanent(){
   return this._http.get<any>(this.url2);
 }
+getAllPermanantAddById(id1){
+  return this._http.get(this.url2+id1);
+}
 
 addpermanent(item:permanent){
   let head=new HttpHeaders().set('Content-Type','application/json');
@@ -84,12 +92,13 @@ deletepermanent(id) {
   let head = new HttpHeaders().set('Content-Type', 'application/json');
   return this._http.delete(this.url2 + id, { headers: head });
 }
-
-editpermanent(item: permanent) {
-  let head = new HttpHeaders().set('Content-Type', 'application/json');
-  let body = JSON.stringify(item);
-       return this._http.put(this.url2 + item.address_permanent, body, { headers: head });
+updatepermanent(item: permanent){
+  let head= new HttpHeaders().set('Content-Type','application/json');
+  let body= JSON.stringify(item);
+  return this._http.put(this.url2+item.id, body,{headers: head});
 }
+
+
 
 // skill table start from below
 

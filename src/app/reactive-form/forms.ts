@@ -73,7 +73,9 @@
      public phone1: number,
      public phone2: number,
      public fax_mobile: string,
-     public personal_email: string,){}}
+     public personal_email: string,
+     public sameaddress:string,
+     ){}}
 
 
      export class skill
